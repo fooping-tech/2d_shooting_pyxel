@@ -37,15 +37,14 @@ class TitleScene:
         font = self._ctx.assets.font
         if font is None:
             return
-        font.draw(56, 16, "ヨコスクロール")
-        font.draw(72, 28, "シユーテイング")
-        font.draw(72, 44, "キタイセンタク")
+        font.draw(52, 16, "SIDE-SCROLL SHOOTER")
+        font.draw(84, 36, "SELECT SHIP")
 
-        font.draw(24, 90, "J:スタート  K:ミサイル")
-        font.draw(28, 102, "L:ボム  U:レーザー  I:フレイム")
+        font.draw(60, 90, "J:START  K:MISSILE")
+        font.draw(36, 102, "L:BOMB  U:LASER  I:FLAME")
 
-        font.draw(28, 120, "WASD:イドウ  A/D:センタク")
-        font.draw(44, 132, "TAB:ヒヨウジ  O:モドル")
+        font.draw(44, 122, "WASD:MOVE  A/D:SELECT")
+        font.draw(52, 134, "TAB:DEBUG  O:BACK")
         ship = self._ships[self._idx]
         font.draw(88, 60, ship.upper())
         sp = self._ctx.assets.sprites[f"ship:{ship}"]

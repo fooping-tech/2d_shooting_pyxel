@@ -4,18 +4,19 @@ set -euo pipefail
 rm -rf site
 mkdir -p site
 
-pyxel package . main.py
-pyxel app2html 2d_shooting_pyxel.pyxapp
-mv 2d_shooting_pyxel.html site/index.html
+# Copy runtime files for <pyxel-run>.
+cp -f main.py site/main.py
+cp -f README.md site/README.md || true
+cp -rf config site/config
+cp -rf src site/src
 
-# Browser UX: prevent arrow keys from scrolling the page and ensure canvas focus.
-python - <<'PY'
-from pathlib import Path
-
-p = Path("site/index.html")
-html = p.read_text(encoding="utf-8")
-
-inject = """<style>
+cat > site/index.html <<'HTML'
+<!doctype html>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>2d_shooting_pyxel</title>
+<script src="https://cdn.jsdelivr.net/gh/kitao/pyxel@2.5.11/wasm/pyxel.js"></script>
+<style>
 html, body { margin: 0; padding: 0; overflow: hidden; background: #000; }
 canvas { outline: none; }
 </style>
@@ -38,23 +39,12 @@ function focusPyxelCanvas() {
 let tries = 0;
 const t = setInterval(() => {
   tries += 1;
-  if (focusPyxelCanvas() || tries > 100) clearInterval(t);
+  if (focusPyxelCanvas() || tries > 200) clearInterval(t);
 }, 50);
 </script>
-"""
 
-marker = '<script src="https://cdn.jsdelivr.net/gh/kitao/pyxel@'
-idx = html.find(marker)
-if idx == -1:
-    raise SystemExit("unexpected HTML format; cannot inject key handling")
-
-after_first_script = html.find("</script>", idx)
-if after_first_script == -1:
-    raise SystemExit("unexpected HTML format; missing </script>")
-
-after_first_script += len("</script>")
-html = html[:after_first_script] + "\n" + inject + "\n" + html[after_first_script:]
-p.write_text(html, encoding="utf-8")
-PY
+<!-- Gamepad support via custom element -->
+<pyxel-run root="." name="main.py" gamepad="enabled"></pyxel-run>
+HTML
 
 echo "Built: site/index.html"

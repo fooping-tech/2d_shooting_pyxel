@@ -21,19 +21,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.11"
-
-      - name: Install Pyxel
-        run: python -m pip install --upgrade pip pyxel
-
-      - name: Install system dependencies (SDL2)
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y libsdl2-2.0-0
-
       - name: Build HTML (Pyxel)
         run: ./scripts/build_pages.sh
 

@@ -18,7 +18,7 @@ class HUD:
             return
 
         # LIFE bar
-        font.draw(4, 2, "ライフ")
+        font.draw(4, 2, "LIFE")
         heart = self._assets.sprites["hud:heart"]
         pyxel.blt(38, 4, heart.img, heart.u, heart.v, heart.w, heart.h, heart.colkey)
 
@@ -37,7 +37,7 @@ class HUD:
                 pyxel.blt(bar_x + i, bar_y + 8, seg.img, seg.u, seg.v, seg.w, seg.h, seg.colkey)
 
         # KILLS
-        text = f"ゲキハ:{kills}"
+        text = f"KILLS:{kills}"
         font.draw(self._w - 8 * len(text) - 4, 2, text)
 
         # Power / Speed (icons + numbers)
@@ -46,7 +46,7 @@ class HUD:
         px = 4
         py = 16
         pyxel.blt(px, py, power_icon.img, power_icon.u, power_icon.v, power_icon.w, power_icon.h, power_icon.colkey)
-        font.draw(px + 8, py - 2, f":{weapon_level}")
+        font.draw(px + 8, py - 2, f"P:{weapon_level}")
         pyxel.blt(px + 40, py, speed_icon.img, speed_icon.u, speed_icon.v, speed_icon.w, speed_icon.h, speed_icon.colkey)
         speed_pct = int(clamp(speed / 3.2, 0.0, 9.9) * 10)
-        font.draw(px + 48, py - 2, f":{speed_pct}")
+        font.draw(px + 48, py - 2, f"S:{speed_pct}")
