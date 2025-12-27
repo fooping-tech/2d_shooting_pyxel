@@ -31,7 +31,7 @@ Output: `site/index.html`
 
 If the browser build doesn't start, make sure `site/` is served over HTTP (not `file://`) and that the deployed `site/` contains `src/index.html` and other directory `index.html` files (GitHub Pages needs them for Pyxel's WASM loader to fetch package directories).
 
-iOS note: iPhone/iPad browsers block audio until the first user interaction, so the web build shows a "Tap to Start" overlay to unlock audio.
+iOS note: iPhone/iPad browsers block audio until the first user interaction; tap Pyxel's "touch to start" prompt once to enable audio.
 
 ## Controls
 
