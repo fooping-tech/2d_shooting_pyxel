@@ -34,12 +34,19 @@ If the browser build doesn't start, make sure `site/` is served over HTTP (not `
 ## Controls
 
 - `W/A/S/D`: Move
+- Arrow keys: Move
 - `J`: Confirm / Cannon
+- `Z`: Confirm / Cannon (alt)
 - `K`: Missile
+- `X`: Missile (alt)
 - `L`: Bomb
+- `C`: Bomb (alt)
 - `U`: Laser (hold to charge, release to fire; full charge = max output + lightning FX)
+- `V`: Laser (alt; hold to charge, release to fire)
 - `I`: Flame thrower
+- `B`: Flame thrower (alt)
 - `O`: Back (to Title)
+- `X`: Back (alt)
 - `TAB`: Toggle debug view
 
 Gamepad (works with the on-screen virtual gamepad on iPhone):
