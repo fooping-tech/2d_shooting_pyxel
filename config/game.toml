@@ -1,0 +1,103 @@
+[window]
+width = 256
+height = 144
+fps = 60
+title = "Side-Scrolling Shooter"
+
+[debug]
+enabled = false
+
+[player]
+max_life = 100
+invincible_frames = 60
+base_speed = 1.6
+max_speed = 3.2
+
+[weapons]
+max_level = 50
+
+[weapons.cannon]
+cooldown_frames = 8
+damage = 1
+speed = 4.0
+
+[weapons.missile]
+cooldown_frames = 18
+cooldown_reduction_per_level = 2
+min_cooldown_frames = 8
+damage = 2
+speed = 3.0
+turn_rate = 0.12
+
+[weapons.bomb]
+cooldown_frames = 28
+damage = 3
+speed = 2.4
+radius = 18
+radius_increase_per_level = 3
+max_radius = 36
+homing_turn_rate = 0.10
+
+[weapons.laser]
+cooldown_frames = 40
+damage = 1
+max_damage = 8
+beam_length = 140
+beam_length_increase_per_level = 10
+max_beam_length = 220
+beam_width = 4
+beam_width_increase_per_level = 1
+max_beam_width = 10
+tick_interval_frames = 6
+charge_max_frames = 45
+charge_bonus_length = 80
+charge_bonus_width = 6
+charge_bonus_duration = 22
+
+[weapons.flame]
+range = 70
+width = 16
+damage = 1
+tick_interval_frames = 3
+charge_max_frames = 45
+max_range = 140
+max_width = 28
+upgrade_base_bonus_range = 20
+upgrade_base_bonus_width = 6
+upgrade_base_bonus_damage = 0
+
+[weapons.flame.burn]
+duration_frames = 120
+damage = 1
+tick_interval_frames = 10
+spread_radius = 22
+speed_multiplier = 0.55
+
+[items]
+drop_chance = 0.22
+heal_amount = 25
+power_amount = 1
+speed_amount = 0.2
+
+[stage]
+scroll_speed = 1.2
+
+[[stage.sections]]
+name = "moon"
+distance = 900
+spawn_rate = 0.06
+
+[[stage.sections]]
+name = "space"
+distance = 900
+spawn_rate = 0.08
+
+[[stage.sections]]
+name = "planet1"
+distance = 900
+spawn_rate = 0.10
+
+[[stage.sections]]
+name = "planet2"
+distance = 900
+spawn_rate = 0.12

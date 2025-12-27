@@ -1,0 +1,24 @@
+from __future__ import annotations
+
+from pathlib import Path
+
+
+def load_dotenv(path: str | Path = ".env") -> dict[str, str]:
+    env_path = Path(path)
+    if not env_path.exists():
+        return {}
+
+    out: dict[str, str] = {}
+    for raw_line in env_path.read_text(encoding="utf-8").splitlines():
+        line = raw_line.strip()
+        if not line or line.startswith("#"):
+            continue
+        if "=" not in line:
+            continue
+        key, value = line.split("=", 1)
+        key = key.strip()
+        value = value.strip().strip("'").strip('"')
+        if key:
+            out[key] = value
+    return out
+
