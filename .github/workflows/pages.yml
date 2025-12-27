@@ -29,6 +29,11 @@ jobs:
       - name: Install Pyxel
         run: python -m pip install --upgrade pip pyxel
 
+      - name: Install system dependencies (SDL2)
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libsdl2-2.0-0
+
       - name: Build HTML (Pyxel)
         run: |
           pyxel package . main.py
@@ -54,4 +59,3 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-
