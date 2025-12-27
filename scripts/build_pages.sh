@@ -34,6 +34,28 @@ cat > site/index.html <<'HTML'
 <style>
 html, body { margin: 0; padding: 0; overflow: hidden; background: #000; }
 canvas { outline: none; }
+#start-overlay {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,0.85);
+  color: #fff;
+  font-family: system-ui, -apple-system, sans-serif;
+  text-align: center;
+  padding: 24px;
+  z-index: 9999;
+}
+#start-overlay button {
+  font-size: 18px;
+  padding: 12px 18px;
+  border: 1px solid #666;
+  background: #111;
+  color: #fff;
+  border-radius: 10px;
+}
+#start-overlay p { max-width: 34em; line-height: 1.4; }
 </style>
 <script>
 // Prevent arrow keys from scrolling the page while playing.
@@ -51,15 +73,43 @@ function focusPyxelCanvas() {
   c.addEventListener("pointerdown", () => c.focus());
   return true;
 }
-let tries = 0;
-const t = setInterval(() => {
-  tries += 1;
-  if (focusPyxelCanvas() || tries > 200) clearInterval(t);
-}, 50);
+
+function startGame() {
+  const overlay = document.getElementById("start-overlay");
+  if (overlay) overlay.remove();
+
+  // Create <pyxel-run> dynamically so iOS counts it as a user gesture
+  // (needed to enable audio playback).
+  const el = document.createElement("pyxel-run");
+  el.setAttribute("root", ".");
+  el.setAttribute("name", "main.py");
+  el.setAttribute("gamepad", "enabled");
+  document.body.appendChild(el);
+
+  let tries = 0;
+  const t = setInterval(() => {
+    tries += 1;
+    if (focusPyxelCanvas() || tries > 300) clearInterval(t);
+  }, 50);
+}
+
+window.addEventListener("load", () => {
+  const btn = document.getElementById("start-button");
+  if (btn) {
+    btn.addEventListener("pointerdown", (e) => {
+      e.preventDefault();
+      startGame();
+    }, { passive: false });
+  }
+});
 </script>
 
-<!-- Gamepad support via custom element -->
-<pyxel-run root="." name="main.py" gamepad="enabled"></pyxel-run>
+<div id="start-overlay">
+  <div>
+    <button id="start-button">Tap to Start</button>
+    <p>On iPhone/iPad, audio is disabled until the first user interaction. Please tap to start.</p>
+  </div>
+</div>
 HTML
 
 echo "Built: site/index.html"
