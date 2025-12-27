@@ -44,7 +44,7 @@ class TitleScene:
         font.draw(36, 102, "L:BOMB  U:LASER  I:FLAME")
 
         font.draw(44, 122, "WASD:MOVE  A/D:SELECT")
-        font.draw(52, 134, "TAB:DEBUG  O:BACK")
+        font.draw(24, 134, "GAMEPAD:DPAD MOVE  A START")
         ship = self._ships[self._idx]
         font.draw(88, 60, ship.upper())
         sp = self._ctx.assets.sprites[f"ship:{ship}"]

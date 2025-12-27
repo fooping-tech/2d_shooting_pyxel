@@ -8,18 +8,18 @@ title = "Side-Scrolling Shooter"
 enabled = false
 
 [input]
-up = "W"
-down = "S"
-left = "A"
-right = "D"
-confirm = "J"
-back = "O"
+up = ["W", "GAMEPAD1_BUTTON_DPAD_UP"]
+down = ["S", "GAMEPAD1_BUTTON_DPAD_DOWN"]
+left = ["A", "GAMEPAD1_BUTTON_DPAD_LEFT"]
+right = ["D", "GAMEPAD1_BUTTON_DPAD_RIGHT"]
+confirm = ["J", "GAMEPAD1_BUTTON_A"]
+back = ["O", "GAMEPAD1_BUTTON_BACK"]
 pause = "RETURN"
-fire_cannon = "J"
-fire_missile = "K"
-fire_bomb = "L"
-fire_laser = "U"
-fire_flame = "I"
+fire_cannon = ["J", "GAMEPAD1_BUTTON_A"]
+fire_missile = ["K", "GAMEPAD1_BUTTON_B"]
+fire_bomb = ["L", "GAMEPAD1_BUTTON_X"]
+fire_laser = ["U", "GAMEPAD1_BUTTON_Y"]
+fire_flame = ["I", "GAMEPAD1_BUTTON_START"]
 toggle_debug = "TAB"
 
 [player]

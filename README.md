@@ -42,6 +42,16 @@ If the browser build doesn't start, make sure `site/` is served over HTTP (not `
 - `O`: Back (to Title)
 - `TAB`: Toggle debug view
 
+Gamepad (works with the on-screen virtual gamepad on iPhone):
+
+- D-Pad: Move
+- `A`: Confirm / Cannon
+- `B`: Missile
+- `X`: Bomb
+- `Y`: Laser
+- `Start`: Flame
+- `Back`: Back (to Title)
+
 ## Game Rules
 
 - Destroy enemies to increase `KILLS`
