@@ -41,14 +41,11 @@ class TitleScene:
         font.draw(72, 28, "シユーテイング")
         font.draw(72, 44, "キタイセンタク")
 
-        font.draw(24, 90, "Z:スタート  X:ミサイル")
-        font.draw(28, 102, "C:ボム  V:レーザー  B:フレイム")
+        font.draw(24, 90, "J:スタート  K:ミサイル")
+        font.draw(28, 102, "L:ボム  U:レーザー  I:フレイム")
 
-        left = self._ctx.assets.sprites["ui:left"]
-        right = self._ctx.assets.sprites["ui:right"]
-        pyxel.blt(56, 120, left.img, left.u, left.v, left.w, left.h, left.colkey)
-        pyxel.blt(64, 120, right.img, right.u, right.v, right.w, right.h, right.colkey)
-        font.draw(76, 120, ":キタイ  TAB:ヒヨウジ")
+        font.draw(28, 120, "WASD:イドウ  A/D:センタク")
+        font.draw(44, 132, "TAB:ヒヨウジ  O:モドル")
         ship = self._ships[self._idx]
         font.draw(88, 60, ship.upper())
         sp = self._ctx.assets.sprites[f"ship:{ship}"]

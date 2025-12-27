@@ -7,6 +7,21 @@ title = "Side-Scrolling Shooter"
 [debug]
 enabled = false
 
+[input]
+up = "W"
+down = "S"
+left = "A"
+right = "D"
+confirm = "J"
+back = "O"
+pause = "RETURN"
+fire_cannon = "J"
+fire_missile = "K"
+fire_bomb = "L"
+fire_laser = "U"
+fire_flame = "I"
+toggle_debug = "TAB"
+
 [player]
 max_life = 100
 invincible_frames = 60

@@ -36,4 +36,4 @@ class GameOverScene:
             return
         font.draw(72, 44, "ゲームオーバー")
         font.draw(84, 68, f"ゲキハ:{self._kills}")
-        font.draw(52, 104, "Z:リトライ  X:タイトル")
+        font.draw(52, 104, "J:リトライ  O:タイトル")
