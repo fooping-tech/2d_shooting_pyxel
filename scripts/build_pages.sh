@@ -10,6 +10,21 @@ cp -f README.md site/README.md || true
 cp -rf config site/config
 cp -rf src site/src
 
+# Pyxel WASM loader uses synchronous XHR against directory paths (e.g. "src", "src/core").
+# GitHub Pages serves directories only when an index.html exists, so add minimal ones.
+for d in \
+  site/config \
+  site/src \
+  site/src/core \
+  site/src/scenes \
+  site/src/entities \
+  site/src/systems \
+  site/src/ui
+do
+  mkdir -p "$d"
+  printf '%s\n' '<!doctype html><meta charset="utf-8"><title>dir</title>' > "$d/index.html"
+done
+
 cat > site/index.html <<'HTML'
 <!doctype html>
 <meta charset="utf-8" />

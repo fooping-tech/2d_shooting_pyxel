@@ -29,6 +29,8 @@ Build locally:
 
 Output: `site/index.html`
 
+If the browser build doesn't start, make sure `site/` is served over HTTP (not `file://`) and that the deployed `site/` contains `src/index.html` and other directory `index.html` files (GitHub Pages needs them for Pyxel's WASM loader to fetch package directories).
+
 ## Controls
 
 - `W/A/S/D`: Move
