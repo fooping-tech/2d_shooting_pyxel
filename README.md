@@ -12,6 +12,10 @@ A side-scrolling shooter built with Pyxel (Gradius-like).
 ```sh
 pyxel run main.py
 ```
+or
+```sh
+python -m pyxel run main.py
+```
 
 ## GitHub Pages (Web)
 
